@@ -32,9 +32,10 @@ if op == 3:
 	campings = raiz.findall("objRegistral")
 	for x in campings:
 		if camping in x.find("dades_generals/retol").text:
-			precio = raiz.findall("objRegistral/preus/any/preu/")
+			precio = raiz.findall("objRegistral/preus/any/preu")
 			for n in precio:
 				print n.find("descripcio").text
+				print n.find("orientatiu").text
 #Ejercicio 4
 
 #Ejercicio 5
