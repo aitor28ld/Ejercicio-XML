@@ -22,11 +22,19 @@ if op == 1:
 
 #Ejercicio 2
 if op == 2:
-	servicios = raiz.findall("objRegistral/serveis")
+	servicios = raiz.findall("objRegistral")
 	for x in servicios:
-		print len(x.findall("servei"))
-#Ejercicio 3
+		print len(x.findall("serveis/servei"))
 
+#Ejercicio 3
+if op == 3:
+	camping = raw_input("Escribe una cadena a buscar: ")
+	campings = raiz.findall("objRegistral")
+	for x in campings:
+		if camping in x.find("dades_generals/retol").text:
+			precio = raiz.findall("objRegistral/preus/any/preu/")
+			for n in precio:
+				print n.find("descripcio").text
 #Ejercicio 4
 
 #Ejercicio 5
