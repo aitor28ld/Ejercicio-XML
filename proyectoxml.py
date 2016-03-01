@@ -19,8 +19,12 @@ if op == 1:
 	servicios = raiz.findall("objRegistral/serveis")
 	for x in servicios:
 		print x.find("servei/descripcio").text
-#Ejercicio 2
 
+#Ejercicio 2
+if op == 2:
+	servicios = raiz.findall("objRegistral/serveis")
+	for x in servicios:
+		print len(x.findall("servei"))
 #Ejercicio 3
 
 #Ejercicio 4
