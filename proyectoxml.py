@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from lxml import etree
+import utm
 
 arbol = etree.parse("camping.xml")
 
@@ -36,6 +37,16 @@ if op == 3:
 			for n in precio:
 				print n.find("descripcio").text
 				print n.find("orientatiu").text
-#Ejercicio 4
 
+#Ejercicio 4
+if op == 4:
+	camping = raw_input("Escribe el nombre de un camping: ")
+	campings = raiz.findall("objRegistral")
+	for x in campings:
+		if camping in x.find("dades_generals/retol").text:
+			longitud = x.find("dades_generals/adreca/utm_x").text
+			latitud = x.find("dades_generals/adreca/utm_y").text
+			medidas = str(utm.to_latlon(int(longitud), int(latitud), 31, 'U')).split(",")
+			print "http://www.openstreetmap.org/way/109089302#map=15/"+medidas[0][1:]+"/"+medidas[1][:-1]
+			
 #Ejercicio 5
