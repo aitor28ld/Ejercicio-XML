@@ -57,12 +57,10 @@ if op == 5:
 	fechas = raiz.findall("objRegistral/periodes_tancament/tancament")
 	for x in campings:
 		if cod == x.find("dades_generals/adreca/cp").text:
+			print x.find("dades_generals/retol").text
 			for n in fechas:
 				if fecha >= n.find("data_inici").text and fecha <= n.find("data_fi").text:
 					print "Camping Cerrado"
-					print x.find("dades_generals/retol").text
 					print "Fechas de cierre:", n.find("data_inici").text+" hasta "+n.find("data_fi").text
-					
-				else:
-					print "Camping Abierto"
 					break
+					
