@@ -50,3 +50,19 @@ if op == 4:
 			print "http://www.openstreetmap.org/way/109089302#map=15/"+medidas[0][1:]+"/"+medidas[1][1:-1]
 			
 #Ejercicio 5
+if op == 5:
+	cod = raw_input("Escribe el código postal de un camping: ")
+	fecha = raw_input("Escribe una fecha valida (DD-MM-YYYY)(Sólo anyo 2014): ")
+	campings = raiz.findall("objRegistral")
+	fechas = raiz.findall("objRegistral/periodes_tancament/tancament")
+	for x in campings:
+		if cod == x.find("dades_generals/adreca/cp").text:
+			for n in fechas:
+				if fecha >= n.find("data_inici").text and fecha <= n.find("data_fi").text:
+					print "Camping Cerrado"
+					print x.find("dades_generals/retol").text
+					print "Fechas de cierre:", n.find("data_inici").text+" hasta "+n.find("data_fi").text
+					
+				else:
+					print "Camping Abierto"
+					break
