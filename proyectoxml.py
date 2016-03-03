@@ -52,15 +52,21 @@ if op == 4:
 #Ejercicio 5
 if op == 5:
 	cod = raw_input("Escribe el código postal de un camping: ")
-	fecha = raw_input("Escribe una fecha valida (DD-MM-YYYY)(Sólo anyo 2014): ")
+	fecha = raw_input("\nEscribe una fecha valida (DD-MM-YYYY)(Sólo anyo 2014): ")
 	campings = raiz.findall("objRegistral")
 	fechas = raiz.findall("objRegistral/periodes_tancament/tancament")
 	for x in campings:
 		if cod == x.find("dades_generals/adreca/cp").text:
 			print x.find("dades_generals/retol").text
-			for n in fechas:
-				if fecha >= n.find("data_inici").text and fecha <= n.find("data_fi").text:
-					print "Camping Cerrado"
-					print "Fechas de cierre:", n.find("data_inici").text+" hasta "+n.find("data_fi").text
-					break
-					
+			for n in x.findall("periodes_tancament/tancament"):
+				diainicio = n.find("data_inici").text.split("-")[0]
+				diafin = n.find("data_fi").text.split("-")[0]
+				mesinicio = n.find("data_inici").text.split("-")[1]
+				mesfin = n.find("data_fi").text.split("-")[1]
+				if fecha.split("-")[0] >= diainicio and fecha.split("-")[0] <= diafin and fecha.split("-")[1] >= mesinicio and fecha.split("-")[1] <= mesfin :
+					print "\nCamping Cerrado"
+					print "Fechas de cierre:"
+					print n.find("data_inici").text+" hasta "+n.find("data_fi").text		
+else:
+	print "Opción inválida"
+			
