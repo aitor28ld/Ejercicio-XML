@@ -13,3 +13,5 @@ Enunciados
 
 Para que el programa funcione correctamente, tenemos que instalar el paquete de la libreria UTM:
 pip install utm
+O también puedes descargartelo desde el siguiente link:
+https://pypi.python.org/pypi/utm
