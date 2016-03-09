@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from lxml import etree
 import utm
+import os
 
 arbol = etree.parse("camping.xml")
 
@@ -63,4 +64,15 @@ if op == 5:
 					print "Camping Cerrado"
 					print "Fechas de cierre:", n.find("data_inici").text+" hasta "+n.find("data_fi").text
 					break
-					
+#Ejercicio 6
+if op == 6:
+	provincia = raw_input("Escribe una provincia: ").upper()
+	provincias = raiz.findall("objRegistral")
+	for x in provincias:
+		if provincia in x.find("dades_generals/adreca/provincia").text:
+			try:
+				os.system("echo '<h1>"+x.find("dades_generals/retol").text.encode("utf-8")+"</h1>' >> index.html")
+				os.system("echo '<p>"+x.find("dades_generals/adreca/no_normalitzada").text.encode("utf-8")+"</p>' >> index.html")
+				os.system("echo '<a href=http://"+x.find("dades_generals/web").text+">Información</a>' >> index.html")
+			except:
+				pass
