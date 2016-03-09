@@ -77,3 +77,4 @@ if op == 6:
 				os.system("echo '<a href=http://"+x.find("dades_generals/web").text+">Información</a>' >> index.html")
 			except:
 				pass
+			
