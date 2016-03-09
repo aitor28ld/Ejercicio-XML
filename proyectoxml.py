@@ -13,6 +13,7 @@ print "2.- ¿Cuantos servicios ofrecen los campings?"
 print "3.- Pide por teclado una cadena y muestra la descripción y precio del camping que contiene dicha cadena."
 print "4.- Pide por teclado un camping y muestra las coordenadas así como un enlace a Open Street Map de su ubicación."
 print "5.- Pedir por teclado el código postal del camping además de una fecha. Deberá decir si el camping está cerrado y muestra el nombre del camping con la fecha de inicio y fin."
+print "6.- Pedir una provincia y genera un fichero .html con el nombre del camping, la dirección y la web"
 
 op = int(raw_input("Elige una opción de las indicadas arriba: "))
 
